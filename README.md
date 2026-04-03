@@ -64,20 +64,20 @@ The server name should match exactly what appears in your Plex interface.
 
 ## Flags (m3u_to_plex.py)
 
-`-v` (--verbose): Detailed output including match counts
-`-d` (--debug): Debug output including raw path comparisons
-`-r` (--replace): Delete and recreate playlist if m3u has changed
-`-p` (--pretend): Dry run, do not create playlists
+* `-v` (--verbose): Detailed output including match counts
+* `-d` (--debug): Debug output including raw path comparisons
+* `-r` (--replace): Delete and recreate playlist if m3u has changed
+* `-p` (--pretend): Dry run, do not create playlists
 
 # Notes
 
-- The playlist name in Plex is taken from the m3u filename
+* The playlist name in Plex is taken from the m3u filename
 
-- Brute force matching scans your entire Plex library and can be slow on large collections — a library of 50,000+ tracks may take several minutes to load
+* Brute force matching scans your entire Plex library and can be slow on large collections — a library of 50,000+ tracks may take several minutes to load
 
-- The status_db file tracks fingerprints of processed playlists to skip unchanged ones on reruns
+* The status_db file tracks fingerprints of processed playlists to skip unchanged ones on reruns
 
-- Paths in your m3u files must be accessible from the machine running the script
+* Paths in your m3u files must be accessible from the machine running the script
 
 # Credits
 Originally based on a script by yarnairb. Improvements include bare m3u support, Unicode/mojibake fixes, a trailing comma bug fix in path comparison, and the companion export script.
