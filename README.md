@@ -2,8 +2,8 @@
 A Python command-line tool for syncing MusicBee playlists to Plex Media Server, and exporting Plex playlists back to m3u format.
 Scripts
 
-m2p.py — Imports m3u playlists into Plex
-p2m.py — Exports Plex playlists to m3u files
+* m2p.py — Imports m3u playlists into Plex
+* p2m.py — Exports Plex playlists to m3u files
 
 ## Features
 
