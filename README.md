@@ -1,29 +1,30 @@
 # m2p2m
-A Python command-line tool for syncing MusicBee playlists to Plex Media Server, and exporting Plex playlists back to m3u format.
-Scripts
+A pair of Python command-line tools for syncing m3u playlists to Plex Media Server, and exporting Plex playlists back to m3u format.
+
+## Scripts
 
 * m2p.py — Imports m3u playlists into Plex
 * p2m.py — Exports Plex playlists to m3u files
 
 ## Features
 
-Supports both extended m3u (with #EXTINF: headers) and bare m3u (paths only) formats
-Multiple track matching strategies: exact path, normalized path variants, stripped comparison, artist/title metadata, and brute force full-library scan
-Change detection via MD5 fingerprinting — unchanged playlists are skipped on subsequent runs
-Handles Unicode characters in filenames (e.g. µ-Ziq, Björk)
-Dry run mode — preview matches without creating playlists
-Export single or all Plex playlists to m3u
+* Supports both extended m3u (with #EXTINF: headers) and bare m3u (paths only) formats
+* Multiple track matching strategies: exact path, normalized path variants, stripped comparison, artist/title metadata, and brute force full-library scan
+* Change detection via MD5 fingerprinting — unchanged playlists are skipped on subsequent runs
+* Handles Unicode characters in filenames (e.g. µ-Ziq, Björk)
+* Dry run mode — preview matches without creating playlists
+* Export single or all Plex playlists to m3u
 
 ## Requirements
 
-- Python 3.7+
-- A Plex Media Server account and running server instance
+*  Python 3.7+
+*  A Plex Media Server account and running server instance
 
 `bashpip install plexapi`
 
 ## Configuration
 
-Create a plex_account.ini file in the same folder as the scripts:
+Create a plex_account.ini file in the same folder as the scripts to give the scripts your Plex server credentials:
 
 ```
 login = your@email.com
@@ -37,30 +38,30 @@ The server name should match exactly what appears in your Plex interface.
 ### Import m3u to Plex
 
 **Single playlist**
-`python m3u_to_plex.py /path/to/playlist.m3u`
+`python m2p.py /path/to/playlist.m3u`
 
 **Entire folder of playlists**
-`python m3u_to_plex.py /path/to/playlists/`
+`python m2p.py /path/to/playlists/`
 
 **Dry run - match tracks without creating playlists**
-`python m3u_to_plex.py -v -p /path/to/playlist.m3u`
+`python m2p.py -v -p /path/to/playlist.m3u`
 
 **Replace existing playlist if m3u has changed**
-`python m3u_to_plex.py -r /path/to/playlist.m3u`
+`python m2p.py -r /path/to/playlist.m3u`
 
 ### Export Plex to m3u
 
 **List all Plex audio playlists**
-`python plex_to_m3u.py -l`
+`python p2m.py -l`
 
 **Export a single playlist**
-`python plex_to_m3u.py "My Playlist"`
+`python p2m.py "My Playlist"`
 
 **Export to a specific folder**
-`python plex_to_m3u.py "My Playlist" -o /path/to/output/`
+`python p2m.py "My Playlist" -o /path/to/output/`
 
 **Export all playlists**
-`python plex_to_m3u.py -o /path/to/output/`
+`python p2m.py -o /path/to/output/`
 
 ## Flags (m3u_to_plex.py)
 
@@ -80,4 +81,5 @@ The server name should match exactly what appears in your Plex interface.
 * Paths in your m3u files must be accessible from the machine running the script
 
 # Credits
-Originally based on a script by yarnairb. Improvements include bare m3u support, Unicode/mojibake fixes, a trailing comma bug fix in path comparison, and the companion export script.
+
+Originally based on a script by [yarnairb](https://gist.github.com/yarnairb/d905903a550da571d9346aff3a6d3fdb). Improvements include bare m3u support, Unicode/mojibake fixes, a trailing comma bug fix in path comparison, and the companion export script.
