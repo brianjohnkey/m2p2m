@@ -38,16 +38,16 @@ The server name should match exactly what appears in your Plex interface.
 ### Import m3u to Plex
 
 **Single playlist**
-`python m2p.py /path/to/playlist.m3u`
+`python m2p.py "/path/to/playlist.m3u"`
 
 **Entire folder of playlists**
-`python m2p.py /path/to/playlists/`
+`python m2p.py "/path/to/playlists/"`
 
 **Dry run - match tracks without creating playlists**
-`python m2p.py -v -p /path/to/playlist.m3u`
+`python m2p.py -v -p "/path/to/playlist.m3u"`
 
 **Replace existing playlist if m3u has changed**
-`python m2p.py -r /path/to/playlist.m3u`
+`python m2p.py -r "/path/to/playlist.m3u"`
 
 ### Export Plex to m3u
 
@@ -61,7 +61,7 @@ The server name should match exactly what appears in your Plex interface.
 `python p2m.py "My Playlist" -o /path/to/output/`
 
 **Export all playlists**
-`python p2m.py -o /path/to/output/`
+`python p2m.py -o "/path/to/output/"`
 
 ## Flags (m3u_to_plex.py)
 
